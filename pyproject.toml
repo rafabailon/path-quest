@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "path-quest"
+dynamic = ["version"]
+description = "A dependency-free terminal maze generator and animated A* solver."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+keywords = [
+    "maze",
+    "maze-generation",
+    "pathfinding",
+    "astar",
+    "terminal",
+    "visualization",
+]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Education",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Education",
+    "Topic :: Games/Entertainment :: Simulation",
+]
+
+[project.scripts]
+path-quest = "cli_main:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["maze", "solver", "renderer", "cli_main"]
+
+[tool.setuptools.dynamic]
+version = {attr = "cli_main.__version__"}
